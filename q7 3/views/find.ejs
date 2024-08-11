@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furry Family Finder</title>  
+    <link rel="icon" type="image/png" href="images/logoo.png">
+    <link rel="stylesheet" href="css/find.css">
+    <style>
+        .pet-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .pet {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        .pet img {
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+        .pet h3 {
+            margin-top: 15px;
+            color: #007bff;
+        }
+        .pet p {
+            margin: 5px 0;
+        }
+        .interested-button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .interested-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-container">
+        <a href="index.html">
+            <img src="images/logoo.png" alt="Pet Adoption Service Logo" class="logo">
+        </a>
+        <h1 class="site-name">Furry Family Finder</h1>
+        <h2 id="current-time"></h2>
+    </header>
+
+    <script>
+        let time = document.getElementById("current-time");
+        setInterval(() => {
+            let d = new Date();
+            time.innerHTML = d.toLocaleTimeString();
+        }, 1000);
+    </script>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home page</a></li>
+            <li><a href="/find" id="current">Find a dog/cat</a></li>
+            <li><a href="Dogcare.html">Dog Care</a></li>
+            <li><a href="Catcare.html">Cat Care</a></li>
+            <li><a href="/giveaway">Have a pet to give away</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="/signup">Create an Account</a></li>
+            <li><a href="/logout">LogOut</a></li> <!-- Logout menu entry -->
+
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Always show the form initially -->
+        <% if (!submitted) { %>
+        <fieldset class="fieldset">
+            <p style="align-items: center; position: relative; left: 0%; font-size: xx-large; color: #245f9a; font-family: sans-serif;">
+                Find your next Furry friend by filling the following!
+            </p>
+            <form id="pet-form" action="/find" method="GET">
+                <label>Type:</label>
+                <label>Cat</label>
+                <input type="radio" id="Cat" value="Cat" name="Type">
+                <label>Dog</label>
+                <input type="radio" id="Dog" value="Dog" name="Type">
+                <br><br>
+
+                <label>Breed:</label>
+                <input type="text" name="breed" class="box">
+                <br><br>
+
+                <label>Preferred age category of the pet?</label>
+                <select name="age" id="age">
+                    <option value="">Select age</option>
+                    <option value="New born">New born</option>
+                    <option value="more than 3">More than 3</option>
+                    <option value="more than 6">More than 6</option>
+                    <option value="more than 9">More than 9</option>
+                </select>
+                <br><br>
+
+                <label>Gender:</label>
+                <label>Female</label>
+                <input type="radio" id="Female" value="Female" name="Gender">
+                <label>Male</label>
+                <input type="radio" id="Male" value="Male" name="Gender">
+                <br><br>
+
+                <input type="checkbox" id="gtlCats" name="suitability" value="Gets along with other cats">
+                <label>Gets along with other cats</label>
+                <input type="checkbox" id="gtlDogs" name="suitability" value="Gets along with other Dogs">
+                <label>Gets along with other Dogs</label>
+                <input type="checkbox" id="gtachild" name="suitability" value="Suitable for a family with small children">
+                <label>Suitable for a family with small children</label>
+                <br><br>
+
+                <input type="submit" class="box">
+                <input type="reset" class="box">
+                <p id="error-message" style="color: red; display: none;"></p>
+            </form>
+        </fieldset>
+        <% } %>
+
+        <!-- Display Matching Pets after form submission -->
+        <% if (submitted && pets.length > 0) { %>
+        <section class="pet-list">
+            <% pets.forEach(pet => {
+                const petData = pet.split(':');
+                const [id, username, type, breed, age, gender, suitability, comment, firstName, lastName, email] = petData;
+                const suitableFor = [
+                    suitability.includes('Cats') ? 'Other cats' : '',
+                    suitability.includes('Dogs') ? 'Dogs' : '',
+                    suitability.includes('Small children') ? 'Small children' : ''
+                ].filter(Boolean).join(', ');
+            %>
+            <article class="pet">
+                <img src="q7/q8/4xgqu.jpg" alt="Cute <%= type %>" class="pet-image">
+                <h3><%= firstName %> <%= lastName %>'s <%= type %></h3>
+                <p><strong>Type:</strong> <%= type %></p>
+                <p><strong>Breed:</strong> <%= breed %></p>
+                <p><strong>Age:</strong> <%= age %></p>
+                <p><strong>Gender:</strong> <%= gender %></p>
+                <p><strong>Gets along with:</strong> <%= suitableFor %></p>
+                <button class="interested-button">Interested</button>
+            </article>
+            <% }) %>
+        </section>
+        <% } else if (submitted && pets.length === 0) { %>
+            <p>No matching pets found.</p>
+        <% } %>
+    </main>
+
+ <footer class="footer">
+            <p style="display: inline-block;">
+                <a href="#" onclick="showPrivacyDisclaimer()" style="color: #ecf0f1; text-decoration: none;">Privacy/Disclaimer Statement</a>
+            </p>
+            <p>We promise that your information will not be sold or misused. The website builder is not responsible for incorrect information posted by pet owners.</p>
+    </footer>
+    <script> 
+    function showPrivacyDisclaimer() {
+                alert("Privacy/Disclaimer Statement:\n\nYour privacy is important to us. We promise that any information you provide through this website will not be sold, shared, or misused. We are committed to protecting your personal data and ensuring that it is used only for the purposes of this website.\n\nPlease note that while we strive to provide accurate information about pets available for adoption, we cannot guarantee the correctness of details provided by pet owners. The website builder is not liable for any misinformation or errors in the listings. Users are encouraged to verify all information independently before making any decisions.");
+            }
+       
+    </script></body>
+</html>

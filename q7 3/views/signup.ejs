@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Furry Family Finder</title>
+    <link rel="stylesheet" href="/css/signup.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .signup-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border: 1px solid #245f9a;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        .signup-container img {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        .signup-container h2 {
+            color: #245f9a;
+            margin-bottom: 20px;
+        }
+        .signup-container p {
+            margin: 10px 0;
+        }
+        .signup-container input[type="text"],
+        .signup-container input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .signup-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #245f9a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .signup-container a {
+            color: #245f9a;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <img src="/images/logoo.png" alt="Pet Adoption Service Logo">
+        <h2>Sign Up</h2>
+        <% if (error) { %>
+            <p style="color: red;"><%= error %></p>
+        <% } %>
+        <form action="/signup" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Sign Up">
+        </form>
+        <p>Already have an account? <a href="/login">Login here</a></p>
+    </div>
+</body>
+</html>

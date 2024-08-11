@@ -1,0 +1,169 @@
+p {
+    padding: 0px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#welcome-message {
+    position: relative;
+    font-size: x-large;
+    left: 10%;
+}
+
+#ls {
+    list-style: none;
+}
+
+.header-container {
+    justify-content: space-between; /* Add this */
+
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #245f9a;
+    margin-bottom: 0px;
+}
+.header-container #current-time { /* Add this */
+    font-size: 18px;
+    color: #BBE9FF;
+}
+
+.header-container .logo {
+    margin-right: 15px;
+    width: 50px; /* Adjust width as needed */
+    height: auto;
+}
+
+.header-container .site-name {
+    font-size: 24px;
+    color: #BBE9FF;
+    margin: 0;
+}
+
+.navbar ul {
+    float: left;
+    list-style-type: none;
+    background-color: #BBE9FF;
+    width: 25vh;
+    height: 100%;
+    padding: 0%;
+    margin-top: 0vh;
+    margin-bottom: 0vh;
+    display: block;
+}
+
+.navbar a {
+    font-size: large;
+    text-decoration: none;
+    color: #154870;
+    display: block;
+    padding: 15px;
+    margin: 0px;
+    height: 8.2vh;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+    background-color: rgb(0, 74, 101);
+}
+
+#current {
+    background-color: rgb(5, 32, 34);
+    color: white;
+}
+
+div.main {
+    display: inline-block;
+    font-size: x-large;
+    backface-visibility: visible;
+    padding: 1px;
+    top: 0px;
+    width: 30%;
+    height: 510px;
+    margin-bottom: 0vh;
+    bottom: 10vh;
+    left: 10vh;
+    position: relative;
+    /* border: 1px solid black; */
+}
+
+div.second {
+    margin-top: 0vh;
+    display: inline-block;
+    font-size: x-large;
+    backface-visibility: visible;
+    padding: 10px;
+    width: 25%;
+    height: 40vh;
+    margin-bottom: 0vh;
+    bottom: 29vh;
+    left: 30vh;
+    position: relative;
+    /* border: 1px solid black; */
+}
+
+.footer {
+    text-align: center;
+
+    clear: both;
+    bottom: 0;
+    margin-top: 0px;
+    height: 8vh;
+    background-color: #245f9a;
+    color: white;
+    padding: 5vh;
+    position: relative;
+    width: 100%;
+}
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .header-container .logo {
+        margin-right: 0;
+        width: 40px; /* Adjust width as needed */
+    }
+
+    .header-container .site-name {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .navbar ul {
+        width: 100%;
+        float: none;
+    }
+
+    .navbar a {
+        font-size: medium;
+        padding: 10px;
+        height: auto;
+    }
+
+    div.main {
+        width: 100%;
+        left: 0;
+        height: auto;
+    }
+
+    div.second {
+        top: 0vh;
+        width: 100%;
+        left: 0;
+        height: auto;
+    }
+
+    .footer {
+        padding: 2vh;
+        text-align: center;
+    }
+}

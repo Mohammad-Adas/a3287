@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furry Family Finder</title>  
+    <link rel="icon" type="image/png" href="images/logoo.png">
+    <link rel="stylesheet" href="css/find.css">
+</head>
+<body>
+    <header class="header-container">
+        <a href="index.html">
+            <img src="images/logoo.png" alt="Pet Adoption Service Logo" class="logo">
+        </a>
+        <h1 class="site-name">Furry Family Finder</h1>
+        <h2 id="current-time"></h2>
+    </header>
+
+    <script>
+        let time = document.getElementById("current-time");
+        setInterval(() => {
+            let d = new Date();
+            time.innerHTML = d.toLocaleTimeString();
+        }, 1000);
+
+        function validateForm(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            const type = document.querySelector('input[name="Type"]:checked');
+            const breed = document.querySelector('input[name="breed"]');
+            const age = document.querySelector('select[name="age"]');
+            const gender = document.querySelector('input[name="Gender"]:checked');
+            const errorElement = document.getElementById('error-message');
+            let errorMessage = '';
+
+            if (!type) {
+                errorMessage += 'Please select a type.\n';
+            }
+            if (!breed.value) {
+                errorMessage += 'Please enter the breed.\n';
+            }
+            if (!age.value) {
+                errorMessage += 'Please select an age category.\n';
+            }
+            if (!gender) {
+                errorMessage += 'Please select a gender.\n';
+            }
+
+            if (errorMessage) {
+                errorElement.textContent = errorMessage;
+                errorElement.style.display = 'block';
+            } else {
+                errorElement.style.display = 'none';
+                document.getElementById('pet-form').submit();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('pet-form').addEventListener('submit', validateForm);
+        });
+    </script>
+
+<nav class="navbar">
+    <ul>
+        <li><a href="index.html" >Home page</a></li>
+        <!-- <li><a href="brows.html">Browse Available Pets</a></li> -->
+        <li><a href="find.html"id="current">Find a dog/cat</a></li>
+        <li><a href="Dogcare.html">Dog Care</a></li>
+        <li><a href="Catcare.html">Cat Care</a></li>
+        <li><a href="/giveaway">Have a pet to give away</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="/signup">Create an Account</a></li> <!-- New menu entry -->
+    </ul>
+</nav>
+    <main>
+        <fieldset class="fieldset">
+            <p style="align-items: center; position: relative; left: 0%; font-size: xx-large; color: #245f9a; font-family: sans-serif;">
+                Find your next Furry friend by filling the following!
+            </p>
+            <form id="pet-form" action="index.php">
+                <label>Type:</label>
+                <label>Cat</label>
+                <input type="radio" id="Cat" value="Cat" name="Type">
+                <label>Dog</label>
+                <input type="radio" id="Dog" value="Dog" name="Type">
+                <br><br>
+
+                <label>Breed:</label>
+                <input type="text" name="breed" class="box">
+                <br><br>
+
+                <label>Preferred age category of the pet?</label>
+                <select name="age" id="age">
+                    <option value="">Select age</option>
+                    <option value="New born">New born</option>
+                    <option value="more than 3">More than 3</option>
+                    <option value="more than 6">More than 6</option>
+                    <option value="more than 9">More than 9</option>
+                </select>
+                <br><br>
+
+                <label>Gender:</label>
+                <label>Female</label>
+                <input type="radio" id="Female" value="Female" name="Gender">
+                <label>Male</label>
+                <input type="radio" id="Male" value="Male" name="Gender">
+                <br><br>
+
+                <input type="checkbox" id="gtlCats" name="suitability">
+                <label>Gets along with other cats</label>
+                <input type="checkbox" id="gtlDogs" name="suitability">
+                <label>Gets along with other Dogs</label>
+                <input type="checkbox" id="gtachild" name="suitability">
+                <label>Suitable for a family with small children</label>
+                <br><br>
+
+                <input type="submit" class="box">
+                <input type="reset" class="box">
+                <p id="error-message" style="color: red; display: none;"></p>
+            </form>
+        </fieldset>
+    </main>
+
+    <footer class="footer"></footer>
+</body>
+</html>

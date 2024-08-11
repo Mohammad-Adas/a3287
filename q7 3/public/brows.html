@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furry Family Finder</title>  
+    <link rel="icon" type="image/png" href="logoo.png">
+    <link rel="stylesheet" href="css/brows.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let time = document.getElementById("current-time");
+            setInterval(() => {
+                let d = new Date();
+                time.innerHTML = d.toLocaleTimeString();
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <header class="header-container">
+        <a href="index.html">
+            <img src="logoo.png" alt="Pet Adoption Service Logo" class="logo">
+        </a>
+        <h1 class="site-name">Furry Family Finder</h1>
+        <h2 id="current-time"></h2>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html" id="current">Home page</a></li>
+            <li><a href="brows.html">Browse Available Pets</a></li>
+            <li><a href="find.html">Find a dog/cat</a></li>
+            <li><a href="Dogcare.html">Dog Care</a></li>
+            <li><a href="Catcare.html">Cat Care</a></li>
+            <li><a href="giveaway.html">Have a pet to give away</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="/signup">Create an Account</a></li> <!-- New menu entry -->
+        </ul>
+    </nav>
+    <main>
+        <section class="pet-list">
+            <div class="main">
+  <article class="pet">
+                <img src="4xgqu.jpg" alt="Cute Cat" class="pet-image">
+                <h3>Gustabo</h3>
+                <p><strong>Type:</strong> Cat</p>
+                <p><strong>Breed:</strong> Persian</p>
+                <p><strong>Age:</strong> More than 3</p>
+                <p><strong>Gender:</strong> Female</p>
+                <p><strong>Gets along with:</strong> Other cats, Dogs, Small children</p>
+                <button class="interested-button">Interested</button>
+            </article>
+
+            </div>
+          
+            <div class="second">
+                 <article class="pet">
+                <img src="dog.png" style="width: 150px;" alt="Happy Dog" class="pet-image">
+                <h3>Buddy</h3>
+                <p><strong>Type:</strong> Dog</p>
+                <p><strong>Breed:</strong> Golden Retriever</p>
+                <p><strong>Age:</strong> More than 6</p>
+                <p><strong>Gender:</strong> Male</p>
+                <p><strong>Gets along with:</strong> Other dogs, Small children</p>
+                <button class="interested-button">Interested</button>
+            </article>
+            </div>
+           
+        </section>
+    </main>
+
+    <footer class="footer"></footer>
+</body>
+</html>

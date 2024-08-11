@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Furry Family Finder</title>
+</head>
+<body>
+    <h1>Welcome to Furry Family Finder!</h1>
+    
+    <% if (isAuthenticated) { %>
+        <p>You are logged in as <%= username %>.</p>
+        <a href="/logout">Logout</a>
+    <% } else { %>
+        <p>You are not logged in.</p>
+        <a href="/login">Login</a>
+    <% } %>
+
+    <a href="/find.html">Find a Pet</a>
+    <a href="/giveaway.html">Giveaway a Pet</a>
+</body>
+</html>

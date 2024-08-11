@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furry Family Finder</title>
+    <link rel="icon" type="image/png" href="images/logoo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header-container">
+        <a href="index.html">
+            <img src="images/logoo.png" alt="Pet Adoption Service Logo" class="logo">
+        </a>
+        <h1 class="site-name">Furry Family Finder</h1>
+        <h2 id="current-time"></h2>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html" id="current">Home page</a></li>
+            <!-- <li><a href="brows.html">Browse Available Pets</a></li> -->
+            <li><a href="/find">Find a dog/cat</a></li>
+            <li><a href="Dogcare.html">Dog Care</a></li>
+            <li><a href="Catcare.html">Cat Care</a></li>
+            <li><a href="/giveaway">Have a pet to give away</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="/signup">Create an Account</a></li> <!-- New menu entry -->
+            <li><a href="/logout">LogOut</a></li> <!-- Logout menu entry -->
+
+        </ul>
+    </nav>
+    
+
+    <main>
+        <p id="ph">Welcome to Furry Family Finder!</p>
+        <p id="welcome-message">Your Trusted Service for finding and adopting your new feline or canine friend.</p>
+        <div class="main">
+            <dl>
+                <dt>We Offer! :</dt>
+                <dd>
+                    <ul>
+                        <li>
+                            <p>Browse Available Pets: See the adorable cats and dogs currently available for adoption. Each pet has been lovingly cared for and is eagerly awaiting a new home.<br></p>
+                        </li>
+                        <li>
+                            <p>Find a Dog/Cat: Use our advanced search features to find the perfect pet that matches your preferences and lifestyle.<br></p>
+                        </li>
+                        <li>
+                            <p>Dog Care: Access a comprehensive guide to dog care, including tips on feeding, training, and health maintenance.<br></p>
+                        </li>
+                        <li>
+                            <p>Cat Care: Learn everything you need to know about caring for your cat, from nutrition to playtime and beyond.<br></p>
+                        </li>
+                        <li>
+                            <p>Have a Pet to Give Away: If you need to find a new home for your pet, we provide a safe and easy way to do so.<br></p>
+                        </li>
+                        <li>
+                            <p>Contact Us: Get in touch with our team for any questions, support, or to start the adoption process.</p>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+    </main>
+    <footer class="footer">
+            <p>
+                <a href="#" onclick="showPrivacyDisclaimer()" style="color: #ecf0f1; text-decoration: none;">Privacy/Disclaimer Statement</a>
+            </p>
+            <p>We promise that your information will not be sold or misused. The website builder is not responsible for incorrect information posted by pet owners.</p>
+    </footer>
+    <script> 
+    function showPrivacyDisclaimer() {
+                alert("Privacy/Disclaimer Statement:\n\nYour privacy is important to us. We promise that any information you provide through this website will not be sold, shared, or misused. We are committed to protecting your personal data and ensuring that it is used only for the purposes of this website.\n\nPlease note that while we strive to provide accurate information about pets available for adoption, we cannot guarantee the correctness of details provided by pet owners. The website builder is not liable for any misinformation or errors in the listings. Users are encouraged to verify all information independently before making any decisions.");
+            }
+        let time = document.getElementById("current-time");
+        setInterval(() => {
+            let d = new Date();
+            time.innerHTML = d.toLocaleTimeString();
+        }, 1000);
+    </script>
+</body>
+</html>
