@@ -7,7 +7,7 @@ const session = require('express-session');
 // This is the path to your pet information file
 const petsFilePath = path.join(__dirname, 'pets.txt'); 
 const app = express();
-
+const port = process.env.PORT ||3000;
 // app.use((req, res, next) => {
 //   if (!req.session.loggedIn && req.path !== '/login' && req.path !== '/signup' && req.path !== '/logout') {
 //       return res.redirect('/login');
@@ -215,6 +215,6 @@ app.get('/test-message', (req, res) => {
 
 
 // Start the server
-app.listen(3000, () => {
+app.listen(port, () => {
     console.log('Server running on http://localhost:3000');
 });
