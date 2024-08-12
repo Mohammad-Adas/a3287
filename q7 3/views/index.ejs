@@ -8,13 +8,13 @@
 <body>
     <h1>Welcome to Furry Family Finder!</h1>
     
-    <% if (isAuthenticated) { %>
-        <p>You are logged in as <%= username %>.</p>
-        <a href="/logout">Logout</a>
-    <% } else { %>
-        <p>You are not logged in.</p>
-        <a href="/login">Login</a>
-    <% } %>
+  <% if (isAuthenticated) { %>
+    <p>You are logged in as <%= username %>.</p>
+    <a href="/logout">Logout</a>
+<% } else { %>
+    <p>You are not logged in.</p>
+    <a href="/login">Login</a> | <a href="/signup">Sign Up</a>
+<% } %>
 
     <a href="/find.html">Find a Pet</a>
     <a href="/giveaway.html">Giveaway a Pet</a>
