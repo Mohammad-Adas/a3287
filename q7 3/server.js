@@ -78,13 +78,12 @@ app.post('/login', (req, res) => {
 });
 
 // Render Home Page
-app.get('/', (req, res) => {
-    res.render('index', { message: null });
+app.get('/dashboard', (req, res) => {
+    res.render('index', { isAuthenticated: req.session.loggedIn, username: req.session.username });
 });
 
-// Render Dashboard Page (Protected Route)
-app.get('/dashboard', isAuthenticated, (req, res) => {
-    res.render('index', { message: `Welcome, ${req.session.username}!` });
+app.get('/', (req, res) => {
+    res.render('index', { isAuthenticated: req.session.loggedIn, username: req.session.username });
 });
 
 // Handle Logout
