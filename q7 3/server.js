@@ -71,11 +71,12 @@ app.post('/login', (req, res) => {
     if (user) {
         req.session.loggedIn = true;
         req.session.username = username;
-        res.redirect('/dashboard');
+        res.redirect('/index.html');  // Redirect to the index.html page
     } else {
         res.render('login', { error: 'Invalid username or password!', success: null, message: null });
     }
 });
+
 
 // Render Home Page
 app.get('/dashboard', (req, res) => {
